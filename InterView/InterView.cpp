@@ -13,7 +13,7 @@ using namespace DingDing;
 
 int main()
 {
-	Function1::SortByVector();
+	//Function1::SortByVector();
 	
 	system("pause");
 
