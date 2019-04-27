@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "InterView",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "stopAtEntry": false,
+      "program": "InterView.exe",
+      "args": [],
+      "cwd": "${workspaceRoot}\\bind\\",
+      "preLaunchTask": "build_debug",
+      "externalConsole": true
+    }
+  ]
+}

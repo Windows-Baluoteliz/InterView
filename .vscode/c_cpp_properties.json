@@ -1,0 +1,19 @@
+{
+  "configurations": [
+    {
+      "name": "InterView.sln:c:/CodeSegment/VS2013/Windows-Baluoteliz/InterView/InterView/InterView.vcxproj",
+      "includePath": [],
+      "defines": [
+        "WIN32",
+        "_DEBUG",
+        "_CONSOLE",
+        "_LIB",
+        ""
+      ],
+      "cStandard": "c99",
+      "cppStandard": "c++11",
+      "intelliSenseMode": "msvc-x64"
+    }
+  ],
+  "version": 4
+}
