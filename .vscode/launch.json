@@ -6,17 +6,11 @@
       "type": "cppvsdbg",
       "request": "launch",
       "stopAtEntry": false,
-      "program": "c:\\CodeSegment\\VS2013\\Windows-Baluoteliz\\InterView\\Debug\\InterView",
+      "program": "InterView.exe",
       "args": [],
-      "cwd": "c:\\CodeSegment\\VS2013\\Windows-Baluoteliz\\InterView\\Debug",
-      "preLaunchTask": "Build InterView.sln:c:/CodeSegment/VS2013/Windows-Baluoteliz/InterView/InterView/InterView.vcxproj",
-      "externalConsole": true,
-      "linux": {
-        "MIMode": "gdb"
-      },
-      "osx": {
-        "MIMode": "lldb"
-      }
+      "cwd": "${workspaceRoot}\\bind\\",
+      "preLaunchTask": "build_debug",
+      "externalConsole": true
     }
   ]
 }
