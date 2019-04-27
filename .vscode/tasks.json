@@ -1,21 +1,21 @@
 {
   "tasks": [
     {
-      "label": "build_debug",
+      "label": "Build InterView.sln:c:/CodeSegment/VS2013/Windows-Baluoteliz/InterView/InterView/InterView.vcxproj",
       "type": "shell",
-      "command": "compile-windows.bat 32 InterView.sln debug",
+      "command": "& 'c:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe' InterView.sln -t:InterView -property:Configuration=Debug -property:Platform=Win32",
       "group": {
         "kind": "build",
-        "isDefault": true
+        "isDefault": false
       }
     },
     {
-      "label": "build_release",
+      "label": "Clean InterView.sln:c:/CodeSegment/VS2013/Windows-Baluoteliz/InterView/InterView/InterView.vcxproj",
       "type": "shell",
-      "command": "compile-windows.bat 32 InterView.sln release",
+      "command": "& 'c:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe' InterView.sln -t:Clean -property:Configuration=Debug -property:Platform=Win32",
       "group": {
         "kind": "build",
-        "isDefault": true
+        "isDefault": false
       }
     }
   ],
