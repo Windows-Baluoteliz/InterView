@@ -11,12 +11,6 @@
       "cwd": "${workspaceRoot\\bind\\}",
       "preLaunchTask": "build_debug",
       "externalConsole": true,
-      "linux": {
-        "MIMode": "gdb"
-      },
-      "osx": {
-        "MIMode": "lldb"
-      }
     }
   ]
 }
