@@ -3,7 +3,7 @@
     {
       "label": "build_debug",
       "type": "shell",
-      "command": "compile-windows.bat 32 InterView.sln debug",
+      "command": "./compile-windows.bat 32 InterView.sln debug",
       "group": {
         "kind": "build",
         "isDefault": true
@@ -12,7 +12,7 @@
     {
       "label": "build_release",
       "type": "shell",
-      "command": "compile-windows.bat 32 InterView.sln release",
+      "command": "./compile-windows.bat 32 InterView.sln release",
       "group": {
         "kind": "build",
         "isDefault": true

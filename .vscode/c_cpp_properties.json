@@ -1,7 +1,7 @@
 {
   "configurations": [
     {
-      "name": "InterView.sln:c:/CodeSegment/VS2013/Windows-Baluoteliz/InterView/InterView/InterView.vcxproj",
+      "name": "WIN32",
       "includePath": [],
       "defines": [
         "WIN32",
