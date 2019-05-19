@@ -1,5 +1,4 @@
-{
-  "tasks": [
+  {"tasks": [
     {
       "label": "build_debug",
       "type": "shell",

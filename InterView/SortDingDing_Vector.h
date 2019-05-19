@@ -2,8 +2,8 @@
 #define __SORTDINGDING_VECTOR_H__
 
 /*
-* About: 钉钉:
-* 一堆数据（Key,Value)，需要对这些数据分类，同时保证先进入的数据在前面.
+* About:
+* mutil string stats and sort . then output it.
 * Author: Baluoteliz@gmail.com.
 */
 
