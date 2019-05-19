@@ -84,7 +84,7 @@
     <ClInclude Include="SortDingDing_Vector.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="binarytreeSort.cpp">
+    <ClCompile Include="HttpProxyModule.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
   </ItemGroup>
