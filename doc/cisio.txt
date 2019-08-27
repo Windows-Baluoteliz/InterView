@@ -1,0 +1,36 @@
+1.share_ptr/weak_ptr场景区分.
+    循环引用.使用weak_ptr 可以解决使用share_ptr  out scope 后内存没有释放的问题.
+
+5.share_ptr 初始化的方法.
+  直接传指针(new/对象地址);make_shared<type>(value); reset(new/对象地址);
+
+6 share_ptr 使用陷阱
+  1.不要入裸指针混用. 直接传入裸指针初始化的智能指针对象并没有关联起来.而是独立的,但是指向的内存对是对立的,所有会造成多次释放crash.
+  2.share_ptr wrapper了 真正的pointer.所有不要直接操作get pointer，比如delete;或者初始化新的shared-ptr instance.
+  3.如果shared-ptr指向的指针类型并没有真正的析构函数.需要额外指定删除器.(lambda)
+  4.循环引用 会造成死锁. 在离开作用域后并不会释放内存.
+
+2.拷贝构造.
+   默认缺省构造;带参构造;拷贝构造;
+   系统提供默认的缺省构造.但是当用户implement了copy constructor,系统不再提供default constructor.
+   赋值拷贝的函数declare: class Type& operator=(const class Type& classObj); 两个引用都不能少.如果这样,那么一旦在拷贝构造里面调用了赋值拷贝容易,会引起栈overstack.
+
+3.aysn thread.
+   critical_section (user_mode block code)
+   automic interlock only for valirably to easy math/logic;meanwhile the interval elapsed of block can't too long.
+   kernel: sycn,event,mutex
+   waitforsingleobject/waitformutilobject. can control the thread aysn.
+
+4.stl. sort lambda.
+   stl:map 实现了rbtree.
+   sort 算法 有可能需要自定义排序算法.
+   sort lambda 就是直接embed 上面提到自定义算法.
+
+5.内存分区
+  栈区: 局部变量,函数参数,shared-ptr; buffer大小较小. 
+  堆区: app主动分配 malloc ,也可以是new.
+  free memory(自由存储区) : app主动分配. new; 这块空间可以是堆区可以是静态区.
+  静态区: 静态变量.(全局/局部)
+  代码区:存放app code.
+  文字常量区: char s[] = "abcd";
+

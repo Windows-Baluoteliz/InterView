@@ -1,0 +1,66 @@
+1.static的用法.
+   全局变量/局部变量; c++ static函数.
+
+2.const的用法.
+   const char* ptr 指针常量(指向内存不可修改) 类似const&
+   char* const ptr 常量指针(指针变量不可修改) 
+   c++类中,修饰return type(主要用于重载);参数：保护内存；函数 const重载.
+   类成员const常量.赋值在构造函数初始化列表中.
+
+3.自增赋值/自增引用.
+   两则没有太大区别,因为引用就是别名.
+
+4.tcp如何鉴别丢包 以及如何实现丢包重传.
+   server端会发送ack通知client端.
+   client端再timeout后没有收到ack就会retransmit
+   重传机制: fr(fast retransmit): 多个chunk不连续包向client发送3ci相同的syn-ack,那么server就retransmit 
+   RTT(Round trip time):预期一个时间RT (Retransmission timeout)，out range of this interval elapsed, should retransmit syn again.
+   RT 是有一个权重算法的.
+
+11.字节序
+   host byte(little-endian)、net byte(big-endian)
+   host byte sequence 低位字节在前,高位在后.
+   net byte sequence 高位字节在前,低位在后.
+
+12.tcp/ip c/s模型.
+  s: socket,bind,sin_family,listen,accpet,rece/send.
+  c:socket,family,connect,
+  all: closesocket();
+
+5.winsock 介绍.
+   封装了tcp/ip的基本步骤
+   select(选择),
+   WSAAsyncSelect(异步选择)
+   WSAEventSelect(事件)
+   OverLapped(重叠)
+   IOCP (完成端口)
+
+6.websocket的链接建立.
+    C: http1.1 get request below
+        Upgrade:websocket
+        Connection:upgrade
+    S: switching protocol.
+    protocol ->websocket了。
+    
+7.进程/线程.
+   a process may also be made up of multiple threads.
+    process run in separate memory spaces;but threadrun in share memory spaces.
+    process can not expose share momory ,but it can call them "thread" to imply share memory.
+ 
+8.namepipe 和unnamepipe区别.
+  namepipe 需要先创建一个管道文件(指定大小).用于c/s 通信.
+  unnamepipe:call pipe api时,内核中开辟一块缓冲区用做通信叫做管道. 用于关系进程(如父子进程)
+   
+9.new 和 malloc的区别.
+    Calling Constructors: new calls constructors, while malloc() does not
+    operator vs function: new is an operator, while malloc() is a function.
+    return type: new returns exact data type, while malloc() returns void *.
+    Failure Condition: On failure, malloc() returns NULL where as new Throws
+    Memory: In case of new, memory is allocated from free store where as in malloc() memory allocation is done from heap.
+    Overriding: We are allowed to override new operator where as we can not override the malloc() function legally.
+    Size: Required size of memory is calculated by compiler for new, where as we have to manually calculate size for malloc().
+
+10.unique_ptr函数传参需要注意的点.
+     使用引用,避免所有权的转移.
+     先release,后赋值. 暂时转移所有权.
+

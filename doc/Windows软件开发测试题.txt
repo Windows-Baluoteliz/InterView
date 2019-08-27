@@ -1,0 +1,21 @@
+注：下列题目不需要完整代码实现，提一下思路即可
+
+1. 请描述一下windows 7以后的权限系统架构。并且说一下什么情况会让一个exe触发windows的权限提示（该文件正在修改计算机，是否允许的提示）
+    1.login账号并不是administrator,但是该exe需要administrator的权限.
+
+2. windows上如何让一个exe自我删除。（例如双击一个test.exe,双击后会删除test.exe本身）
+    2.可以写一个del.bat.内部的话重复删除即可比如：
+     rmdir -r directory
+     del test.exe.
+
+3. 使用QT窗口,去掉了WINDOWS标题栏,怎么实现WIN7以后引入的抖动窗口就可以最小化其他窗口的Aero Shake效果？
+     同步响应DWM状态消息
+     检查 DWM 是否开启
+    对某一个QTWidget 实现aero Shake pDwmenableAeroWindow
+    设置Aero绘图区  pDwmExtendFrameIntoClientArea
+   所有窗口响应 DWM 状态变换消息
+    
+
+4. 请描述一下windows上常用的软件安装包制作方案和软件更新方案
+    setup: innosetup,msi,installshield.
+    update: 一般自己写更新程序,restful api downfile. 然后通过一个bat文件update local 文件. 

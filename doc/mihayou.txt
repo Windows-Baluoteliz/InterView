@@ -1,0 +1,57 @@
+1.download断点续传.
+  通过设置set_opt range. 
+  同样写文件的时候也要注意便宜。最终closefile即可.
+
+2.map 和 unorder_map
+  map:balance map / rb tree. 有序.
+  unordered_map: hashtable 散列.
+
+3.迭代器的类型.
+  input;output;forward;bidirectional;random access;
+  vector: random, map:bidirectional,list: bidirectional.
+
+4.网络拥塞的处理
+   原因: 网络抖动造成 发送量大于bottlneck.
+   解决方案: 1. loss-based: 判断最大rto,ack大于这个值 就肯定拥塞了.这个影响较大.但是判断准确.
+   2.delay-based :rtt权重算法.基于判断ack的时间变化区域,提前预测.调整发送/接受窗口.
+
+5.class/struct 类的大小.
+   空类占用1个字节.
+   非空类计算成员变量大小(需要考虑内存对齐).
+   父类或者子类中有虚函数：虚表指针.
+   如果子类虚继承: 虚继承指针的大小.
+
+6.struct/class内存对齐.
+   默认情况2个条件:
+   每个成员占用内存大小是该类型大小的整数倍.
+   总的结构体占用内存需是其最大成员占用字节数的整数倍.   
+
+7.process 在memory 中的存储结构.
+   stack (parameter of function)
+   heap (malloc)
+   data section global variables and static local variables.
+   text section: executable instrcution,constant variables.macro. is shared so that can be used by other process. 
+ 
+8.进程和线程.
+   进程和线程的主要差别在于它们是不同的操作系统资源管理方式。
+  进程有独立的地址空间，一个进程崩溃后，在保护模式下不会对其它进程产生影响，
+  而线程只是一个进程中的不同执行路径。线程有自己的堆栈和局部变量，
+  但线程之间没有单独的地址空间，一个线程死掉就等于整个进程死掉，所以多进程的程序要比多线程的程序健壮，
+  但在进程切换时，耗费资源较大，效率要差一些。
+  但对于一些要求同时进行并且又要共享某些变量的并发操作，只能用线程，不能用进程
+
+9.win32消息机制/消息路由.
+   system message/device message/user message/customer message. push message queue.
+   master thread messagethread getmessage->dispatchmessage->translatemessage.
+
+10.网络字节序/主机字节序.
+    host litter endian. 低位字节存储在起始地址
+    network big endian 高位字节存储在起始地址.
+    htonl,htons,ntohl,ntohs.
+
+11.map/unorder_map 优缺点和使用场景.
+   map:balance tree /rb tree. 所以他是ordered map 的,但是由于需要建立rb tree ,需要保存pre pointer,next pointer,br attribute.所以耗费内存.
+   unorder_map: hashtable unorder sequence key .建立的时候耗时，但是查找起来很快.
+   unordered_map 常用场景: 比如统计分割字符串按照进来的出现次数. map: 
+  
+

@@ -1,0 +1,10 @@
+1.client tcp最大连接数
+   2*32 次方.
+ server tcp 最大连接数
+   2*16 次方.
+
+2.
+socket/http 是应用层.
+tcp/udp是传输层.
+ip是网络层.
+数据链路/物理层.
