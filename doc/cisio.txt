@@ -14,12 +14,13 @@
    默认缺省构造;带参构造;拷贝构造;
    系统提供默认的缺省构造.但是当用户implement了copy constructor,系统不再提供default constructor.
    赋值拷贝的函数declare: class Type& operator=(const class Type& classObj); 两个引用都不能少.如果这样,那么一旦在拷贝构造里面调用了赋值拷贝容易,会引起栈overstack.
+   同样的拷贝构造参数也不能少了引用.因为这样会引起栈溢出.
 
-3.aysn thread.
+3.syn thread.
    critical_section (user_mode block code)
    automic interlock only for valirably to easy math/logic;meanwhile the interval elapsed of block can't too long.
    kernel: sycn,event,mutex
-   waitforsingleobject/waitformutilobject. can control the thread aysn.
+   waitforsingleobject/waitformutilobject. can control the thread syn.
 
 4.stl. sort lambda.
    stl:map 实现了rbtree.
