@@ -1,0 +1,48 @@
+常见的内存错误.
+   1> 内存申请失败,但使用了.(new/malloc 立即判断ptr weather null)
+   2> 没有initializtion memory  就使用了. (应立即初始化,避免将未初始化的内容作为右值使用.)
+   3> 内存越界. (内存是连续的有下标的)
+   4> 内存泄漏.(new/delete;malloc/free must match.)
+   5> 内存释放之后,还继续使用了. (release memory ,should equal null)
+
+SendMessage/PostMessage的底层原理.
+    postmessaeg return post的结果;sendmessaeg return wndprocedue 的结果.
+    postmessage message into message queue; sendmessage into message procedue.
+    postmessage is asyn ;however sendmessage is syn.
+    with mutilthread. sendthread 需要挂起block.recethread wndprocedue 处理. 等到cpu change sendthread return.
+
+Windows 常见的网络模型
+    select;wsaasynselect;wsaeventselect;overlapper;iocp.
+   
+线程同步/进程通信.
+    critical_section;mutex; single; event;
+   ipc: sharememory;filemap;copydata;network;file;clipboard.
+
+为什么构造拷贝 需要用引用.
+   因为不用引用就会出现栈溢出.   
+
+LibEvent的底层.
+   
+Com底层原理.
+  
+static_cast 和 dynamic_cast区别.
+   static_cast up conversion 安全的.下行不安全.(没有类型校验)
+    dynamic_cast   up/down conversion 均安全的. 
+   在进行上行转换是(子类->基类) dynamic_cast 和 dynamic_cast 是一样的.
+    下行转换时 dynamic_case 有类型校验,所以更安全.
+
+stl算法底层.vector底层算法.
+    vector:数组 内存会一直增长,需要swap零时释放.
+    list: 双链表.
+    map: balance tree /rb tree. 
+    unordered_map hashmap.    
+
+share_ptr用法.
+   3中initialization
+   new;make_share;reset. 均为use_count ++;
+   当release时 判断use_count 是否为0 然后在析构中delete ptr.   
+
+WebRTC.
+
+网络穿墙原理.
+

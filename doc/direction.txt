@@ -1,0 +1,9 @@
+UI:QT
+网络:libEvent + libUV + IO /Select + IO/IOCP
+音视频:DirectX ,OpenGl, Libyuv,Opencv,CoreAudio,DirectSound
+
+后续:
+Script: Python,Shell.
+Android/IOS: 初步入门.
+Linux开发工作
+

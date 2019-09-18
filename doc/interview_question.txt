@@ -1,0 +1,37 @@
+cisco:
+1.c++多肽实现的原理
+2.c++11 智能指针auto_ptr,share_ptr,weak_ptr的区别.
+3.对于QT的基本理解,对比QT相比其他的UI库的区别.
+
+拼多多:
+线程同步、进程通信
+用户区和内核区的区别
+microsoft 的消息机制.
+微软的detrous的底层原理.
+
+腾讯：
+linux和windows在内存管理上的区别.
+虚析构和一般继承的区别.
+
+阿里钉钉：
+常见的内存错误.
+Send/Post的底层原理.
+Windows 常见的网络模型
+线程同步/进程通信.
+为什么构造拷贝 需要用引用.
+LibEvent的底层.
+Com底层原理.
+static_cast 和 dynamic_cast区别.
+stl算法底层.vector底层算法.
+share_ptr用法.
+webRTC.
+网络穿墙原理.
+
+拼多多.
+tcp丢包重传机制: 基于RTT的权重算法得出RTO,timeous就重传; 快速重传就是检测到3次timeout就 直接重新发送包.
+webSocket原理: 基于http的扩展, 支持长连接,cs双向通道, 效率也高.
+WebRTC 框架.
+Http keepAlive作用. 避免http每次都断开. 避免了大量的create/release. 节约资源.
+数组中有一堆有符号的数据,从中查找出3个数据试乘机最大. ;直接找出最大的3个数和最小的2个数.
+
+
