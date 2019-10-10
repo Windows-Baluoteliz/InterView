@@ -42,7 +42,7 @@
 
 9.win32消息机制/消息路由.
    system message/device message/user message/customer message. push message queue.
-   master thread messagethread getmessage->dispatchmessage->translatemessage.
+   master thread messagethread getmessage->translatemessage->dispatchmessage.
 
 10.网络字节序/主机字节序.
     host litter endian. 低位字节存储在起始地址

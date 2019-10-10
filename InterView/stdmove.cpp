@@ -2,7 +2,7 @@
 #include <string>
 #include <utility> // for std::move
 #include <vector>
- 
+
 int main()
 {
 	std::vector<std::string> v;

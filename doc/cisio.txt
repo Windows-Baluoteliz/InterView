@@ -19,7 +19,7 @@
 3.syn thread.
    critical_section (user_mode block code)
    automic interlock only for valirably to easy math/logic;meanwhile the interval elapsed of block can't too long.
-   kernel: sycn,event,mutex
+   kernel: signal,event,mutex
    waitforsingleobject/waitformutilobject. can control the thread syn.
 
 4.stl. sort lambda.

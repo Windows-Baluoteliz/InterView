@@ -14,8 +14,7 @@
     对某一个QTWidget 实现aero Shake pDwmenableAeroWindow
     设置Aero绘图区  pDwmExtendFrameIntoClientArea
    所有窗口响应 DWM 状态变换消息
-    
-
+     
 4. 请描述一下windows上常用的软件安装包制作方案和软件更新方案
     setup: innosetup,msi,installshield.
     update: 一般自己写更新程序,restful api downfile. 然后通过一个bat文件update local 文件. 
