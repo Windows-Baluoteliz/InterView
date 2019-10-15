@@ -1,0 +1,31 @@
+bytedance.
+1.pthread 中wait的原理
+    对producer
+    lock,unlock,send signal, trylock
+    对于consumer
+    lock,wait,unlock
+
+ 2.share memory 在2个process的访问地址是否相同.
+    windows下share memory 在不同process的使用主要是通过filemap 内存映射实现的.
+
+3. signal instance 的lib,然后存在2个dll调用这一块的libs那么最终生成几个instance.
+    2个.取决于dll的数量,核心是lib只是函数集.及时同名在不同的module也是不同的地址的.
+
+cainiao
+4.qt中signal /slots机制.
+   1.使用:
+    derived QObject,
+    使用Q_OBJECT mac.
+    指定的signal/slots declare 前面需要加上signal 或者 slots:
+    最后在implement中connect.
+    2.底层原理:
+    qt的connect需要借助一个moc(meta object compile 编译元组件.)在qmake的时候回生成qt_meta_xxx.cpp
+    该文件中会通过qt_meda_xxx struct,这个结构体中有2个member value. QByteArrayData[4] /stringdata[40]
+    QByteArrayData 它里面使用QT_MOC_LITERAL mac,QT_MOC_LITERAL的3个参数：index(0-3 元素索引),offset 偏移, length 字符串长度.
+    QByteArrayData 它的使用时强大的模板类.
+    
+    二叉树的中序遍历
+       void reserveTreeNode(pNode) {
+        reserveTreeNode(pNode->pLeft); cout<<pNode->nNum<<endl; reserverTreeNode(pNode->pNext);
+    单例 写法(ignore.)
+    
