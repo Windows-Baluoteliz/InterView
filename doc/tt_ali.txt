@@ -5,11 +5,14 @@ bytedance.
     对于consumer
     lock,wait,unlock
 
- 2.share memory 在2个process的访问地址是否相同.
+2.share memory 在2个process的访问地址是否相同.
     windows下share memory 在不同process的使用主要是通过filemap 内存映射实现的.
 
 3. signal instance 的lib,然后存在2个dll调用这一块的libs那么最终生成几个instance.
     2个.取决于dll的数量,核心是lib只是函数集.及时同名在不同的module也是不同的地址的.
+
+4.vector<int>;从中找出第一个出现一次的数
+5.从 std::string 获取n个int型数,去除最大的那个(see interview/toutiao.cpp)
 
 cainiao
 4.qt中signal /slots机制.
