@@ -1,48 +1,47 @@
-³£¼ûµÄÄÚ´æ´íÎó.
-   1> ÄÚ´æÉêÇëÊ§°Ü,µ«Ê¹ÓÃÁË.(new/malloc Á¢¼´ÅĞ¶Ïptr weather null)
-   2> Ã»ÓĞinitializtion memory  ¾ÍÊ¹ÓÃÁË. (Ó¦Á¢¼´³õÊ¼»¯,±ÜÃâ½«Î´³õÊ¼»¯µÄÄÚÈİ×÷ÎªÓÒÖµÊ¹ÓÃ.)
-   3> ÄÚ´æÔ½½ç. (ÄÚ´æÊÇÁ¬ĞøµÄÓĞÏÂ±êµÄ)
-   4> ÄÚ´æĞ¹Â©.(new/delete;malloc/free must match.)
-   5> ÄÚ´æÊÍ·ÅÖ®ºó,»¹¼ÌĞøÊ¹ÓÃÁË. (release memory ,should equal null)
+å¸¸è§çš„å†…å­˜é”™è¯¯.
+   1> å†…å­˜ç”³è¯·å¤±è´¥,ä½†ä½¿ç”¨äº†.(new/malloc ç«‹å³åˆ¤æ–­ptr weather null)
+   2> æ²¡æœ‰initializtion memory  å°±ä½¿ç”¨äº†. (åº”ç«‹å³åˆå§‹åŒ–,é¿å…å°†æœªåˆå§‹åŒ–çš„å†…å®¹ä½œä¸ºå³å€¼ä½¿ç”¨.)
+   3> å†…å­˜è¶Šç•Œ. (å†…å­˜æ˜¯è¿ç»­çš„æœ‰ä¸‹æ ‡çš„)
+   4> å†…å­˜æ³„æ¼.(new/delete;malloc/free must match.)
+   5> å†…å­˜é‡Šæ”¾ä¹‹å,è¿˜ç»§ç»­ä½¿ç”¨äº†. (release memory ,should equal null)
 
-SendMessage/PostMessageµÄµ×²ãÔ­Àí.
-    postmessaeg return postµÄ½á¹û;sendmessaeg return wndprocedue µÄ½á¹û.
+SendMessage/PostMessageçš„åº•å±‚åŸç†.
+    postmessaeg return postçš„ç»“æœ;sendmessaeg return wndprocedue çš„ç»“æœ.
     postmessage message into message queue; sendmessage into message procedue.
-    postmessage is asyn ;however sendmessage is syn.
-    with mutilthread. sendthread ĞèÒª¹ÒÆğblock.recethread wndprocedue ´¦Àí. µÈµ½cpu change sendthread return.
+    postmessage is asyn ;however sendmessage is sync.
+    with mutilthread. sendthread éœ€è¦æŒ‚èµ·block.recethread wndprocedue å¤„ç†. ç­‰åˆ°cpu change sendthread return.
 
-Windows ³£¼ûµÄÍøÂçÄ£ĞÍ
+Windows å¸¸è§çš„ç½‘ç»œæ¨¡å‹
     select;wsaasynselect;wsaeventselect;overlapper;iocp.
    
-Ïß³ÌÍ¬²½/½ø³ÌÍ¨ĞÅ.
+çº¿ç¨‹åŒæ­¥/è¿›ç¨‹é€šä¿¡.
     critical_section;mutex; single; event;
    ipc: sharememory;filemap;copydata;network;file;clipboard.
 
-ÎªÊ²Ã´¹¹Ôì¿½±´ ĞèÒªÓÃÒıÓÃ.
-   ÒòÎª²»ÓÃÒıÓÃ¾Í»á³öÏÖÕ»Òç³ö.   
+ä¸ºä»€ä¹ˆæ„é€ æ‹·è´ éœ€è¦ç”¨å¼•ç”¨.
+   å› ä¸ºä¸ç”¨å¼•ç”¨å°±ä¼šå‡ºç°æ ˆæº¢å‡º.   
 
-LibEventµÄµ×²ã.
+LibEventçš„åº•å±‚.
    
-Comµ×²ãÔ­Àí.
+Comåº•å±‚åŸç†.
   
-static_cast ºÍ dynamic_castÇø±ğ.
-   static_cast up conversion °²È«µÄ.ÏÂĞĞ²»°²È«.(Ã»ÓĞÀàĞÍĞ£Ñé)
-    dynamic_cast   up/down conversion ¾ù°²È«µÄ. 
-   ÔÚ½øĞĞÉÏĞĞ×ª»»ÊÇ(×ÓÀà->»ùÀà) dynamic_cast ºÍ dynamic_cast ÊÇÒ»ÑùµÄ.
-    ÏÂĞĞ×ª»»Ê± dynamic_case ÓĞÀàĞÍĞ£Ñé,ËùÒÔ¸ü°²È«.
+static_cast å’Œ dynamic_caståŒºåˆ«.
+   static_cast up conversion å®‰å…¨çš„.ä¸‹è¡Œä¸å®‰å…¨.(æ²¡æœ‰ç±»å‹æ ¡éªŒ)
+    dynamic_cast   up/down conversion å‡å®‰å…¨çš„. 
+   åœ¨è¿›è¡Œä¸Šè¡Œè½¬æ¢æ˜¯(å­ç±»->åŸºç±») static_cast å’Œ dynamic_cast æ˜¯ä¸€æ ·çš„.
+    ä¸‹è¡Œè½¬æ¢æ—¶ dynamic_case æœ‰ç±»å‹æ ¡éªŒ,æ‰€ä»¥æ›´å®‰å…¨.
 
-stlËã·¨µ×²ã.vectorµ×²ãËã·¨.
-    vector:Êı×é ÄÚ´æ»áÒ»Ö±Ôö³¤,ĞèÒªswapÁãÊ±ÊÍ·Å.
-    list: Ë«Á´±í.
+stlç®—æ³•åº•å±‚.vectoråº•å±‚ç®—æ³•.
+    vector:æ•°ç»„ å†…å­˜ä¼šä¸€ç›´å¢é•¿,éœ€è¦swapé›¶æ—¶é‡Šæ”¾.
+    list: åŒé“¾è¡¨.
     map: balance tree /rb tree. 
     unordered_map hashmap.    
 
-share_ptrÓÃ·¨.
-   3ÖĞinitialization
-   new;make_share;reset. ¾ùÎªuse_count ++;
-   µ±releaseÊ± ÅĞ¶Ïuse_count ÊÇ·ñÎª0 È»ºóÔÚÎö¹¹ÖĞdelete ptr.   
+share_ptrç”¨æ³•.
+   3ä¸­initialization
+   new;make_share;reset. å‡ä¸ºuse_count ++;
+   å½“releaseæ—¶ åˆ¤æ–­use_count æ˜¯å¦ä¸º0 ç„¶ååœ¨ææ„ä¸­delete ptr.   
 
 WebRTC.
 
-ÍøÂç´©Ç½Ô­Àí.
-
+ç½‘ç»œç©¿å¢™åŸç†.

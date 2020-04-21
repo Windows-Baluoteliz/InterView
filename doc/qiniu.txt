@@ -1,57 +1,57 @@
-1.staticµÄÓÃ·¨.
-   È«¾Ö±äÁ¿/¾Ö²¿±äÁ¿; c++ staticº¯Êı.
+1.staticçš„ç”¨æ³•.
+   å…¨å±€å˜é‡/å±€éƒ¨å˜é‡; c++ staticå‡½æ•°.
 
-2.constµÄÓÃ·¨.
-   const char* ptr Ö¸Õë³£Á¿(Ö¸ÏòÄÚ´æ²»¿ÉĞŞ¸Ä) ÀàËÆconst&
-   char* const ptr ³£Á¿Ö¸Õë(Ö¸Õë±äÁ¿²»¿ÉĞŞ¸Ä) 
-   c++ÀàÖĞ,ĞŞÊÎreturn type(Ö÷ÒªÓÃÓÚÖØÔØ);²ÎÊı£º±£»¤ÄÚ´æ£»º¯Êı constÖØÔØ.
-   Àà³ÉÔ±const³£Á¿.¸³ÖµÔÚ¹¹Ôìº¯Êı³õÊ¼»¯ÁĞ±íÖĞ.
+2.constçš„ç”¨æ³•.
+   const char* ptr æŒ‡é’ˆå¸¸é‡(æŒ‡å‘å†…å­˜ä¸å¯ä¿®æ”¹) ç±»ä¼¼const&
+   char* const ptr å¸¸é‡æŒ‡é’ˆ(æŒ‡é’ˆå˜é‡ä¸å¯ä¿®æ”¹) 
+   c++ç±»ä¸­,ä¿®é¥°return type(ä¸»è¦ç”¨äºé‡è½½);å‚æ•°ï¼šä¿æŠ¤å†…å­˜ï¼›å‡½æ•° consté‡è½½.
+   ç±»æˆå‘˜constå¸¸é‡.èµ‹å€¼åœ¨æ„é€ å‡½æ•°åˆå§‹åŒ–åˆ—è¡¨ä¸­.
 
-3.×ÔÔö¸³Öµ/×ÔÔöÒıÓÃ.
-   Á½ÔòÃ»ÓĞÌ«´óÇø±ğ,ÒòÎªÒıÓÃ¾ÍÊÇ±ğÃû.
+3.è‡ªå¢èµ‹å€¼/è‡ªå¢å¼•ç”¨.
+   ä¸¤åˆ™æ²¡æœ‰å¤ªå¤§åŒºåˆ«,å› ä¸ºå¼•ç”¨å°±æ˜¯åˆ«å.
 
-4.tcpÈçºÎ¼ø±ğ¶ª°ü ÒÔ¼°ÈçºÎÊµÏÖ¶ª°üÖØ´«.
-   server¶Ë»á·¢ËÍackÍ¨Öªclient¶Ë.
-   client¶ËÔÙtimeoutºóÃ»ÓĞÊÕµ½ack¾Í»áretransmit
-   ÖØ´«»úÖÆ: fr(fast retransmit): ¶à¸öchunk²»Á¬Ğø°üÏòclient·¢ËÍ3ciÏàÍ¬µÄsyn-ack,ÄÇÃ´server¾Íretransmit 
-   RTT(Round trip time):Ô¤ÆÚÒ»¸öÊ±¼äRT (Retransmission timeout)£¬out range of this interval elapsed, should retransmit syn again.
-   RT ÊÇÓĞÒ»¸öÈ¨ÖØËã·¨µÄ.
+4.tcpå¦‚ä½•é‰´åˆ«ä¸¢åŒ… ä»¥åŠå¦‚ä½•å®ç°ä¸¢åŒ…é‡ä¼ .
+   serverç«¯ä¼šå‘é€acké€šçŸ¥clientç«¯.
+   clientç«¯å†timeoutåæ²¡æœ‰æ”¶åˆ°ackå°±ä¼šretransmit
+   é‡ä¼ æœºåˆ¶: fr(fast retransmit): å¤šä¸ªchunkä¸è¿ç»­åŒ…å‘clientå‘é€3ciç›¸åŒçš„syn-ack,é‚£ä¹ˆserverå°±retransmit 
+   RTT(Round trip time):é¢„æœŸä¸€ä¸ªæ—¶é—´RT (Retransmission timeout)ï¼Œout range of this interval elapsed, should retransmit syn again.
+   RT æ˜¯æœ‰ä¸€ä¸ªæƒé‡ç®—æ³•çš„.
 
-11.×Ö½ÚĞò
-   host byte(little-endian)¡¢net byte(big-endian)
-   host byte sequence µÍÎ»×Ö½ÚÔÚÇ°,¸ßÎ»ÔÚºó.
-   net byte sequence ¸ßÎ»×Ö½ÚÔÚÇ°,µÍÎ»ÔÚºó.
+11.å­—èŠ‚åº
+   host byte(little-endian)ã€net byte(big-endian)
+   host byte sequence ä½ä½å­—èŠ‚åœ¨å‰,é«˜ä½åœ¨å.
+   net byte sequence é«˜ä½å­—èŠ‚åœ¨å‰,ä½ä½åœ¨å.
 
-12.tcp/ip c/sÄ£ĞÍ.
+12.tcp/ip c/sæ¨¡å‹.
   s: socket,bind,sin_family,listen,accpet,rece/send.
   c:socket,family,connect,
   all: closesocket();
 
-5.winsock ½éÉÜ.
-   ·â×°ÁËtcp/ipµÄ»ù±¾²½Öè
-   select(Ñ¡Ôñ),
-   WSAAsyncSelect(Òì²½Ñ¡Ôñ)
-   WSAEventSelect(ÊÂ¼ş)
-   OverLapped(ÖØµş)
-   IOCP (Íê³É¶Ë¿Ú)
+5.winsock ä»‹ç».
+   å°è£…äº†tcp/ipçš„åŸºæœ¬æ­¥éª¤
+   select(é€‰æ‹©),
+   WSAAsynSelect(å¼‚æ­¥é€‰æ‹©)
+   WSAEventSelect(äº‹ä»¶)
+   OverLapped(é‡å )
+   IOCP (å®Œæˆç«¯å£)
 
-6.websocketµÄÁ´½Ó½¨Á¢.
+6.websocketçš„é“¾æ¥å»ºç«‹.
     C: http1.1 get request below
         Upgrade:websocket
         Connection:upgrade
     S: switching protocol.
-    protocol ->websocketÁË¡£
+    protocol ->websocketäº†ã€‚
     
-7.½ø³Ì/Ïß³Ì.
+7.è¿›ç¨‹/çº¿ç¨‹.
    a process may also be made up of multiple threads.
-    process run in separate memory spaces;but threadrun in share memory spaces.
+    process run in separate memory spaces;but thread run in share memory spaces.
     process can not expose share momory ,but it can call them "thread" to imply share memory.
  
-8.namepipe ºÍunnamepipeÇø±ğ.
-  namepipe ĞèÒªÏÈ´´½¨Ò»¸ö¹ÜµÀÎÄ¼ş(Ö¸¶¨´óĞ¡).ÓÃÓÚc/s Í¨ĞÅ.
-  unnamepipe:call pipe apiÊ±,ÄÚºËÖĞ¿ª±ÙÒ»¿é»º³åÇøÓÃ×öÍ¨ĞÅ½Ğ×ö¹ÜµÀ. ÓÃÓÚ¹ØÏµ½ø³Ì(Èç¸¸×Ó½ø³Ì)
+8.namepipe å’ŒunnamepipeåŒºåˆ«.
+  namepipe éœ€è¦å…ˆåˆ›å»ºä¸€ä¸ªç®¡é“æ–‡ä»¶(æŒ‡å®šå¤§å°).ç”¨äºc/s é€šä¿¡.
+  unnamepipe:call pipe apiæ—¶,å†…æ ¸ä¸­å¼€è¾Ÿä¸€å—ç¼“å†²åŒºç”¨åšé€šä¿¡å«åšç®¡é“. ç”¨äºå…³ç³»è¿›ç¨‹(å¦‚çˆ¶å­è¿›ç¨‹)
    
-9.new ºÍ mallocµÄÇø±ğ.
+9.new å’Œ mallocçš„åŒºåˆ«.
     Calling Constructors: new calls constructors, while malloc() does not
     operator vs function: new is an operator, while malloc() is a function.
     return type: new returns exact data type, while malloc() returns void *.
@@ -60,7 +60,6 @@
     Overriding: We are allowed to override new operator where as we can not override the malloc() function legally.
     Size: Required size of memory is calculated by compiler for new, where as we have to manually calculate size for malloc().
 
-10.unique_ptrº¯Êı´«²ÎĞèÒª×¢ÒâµÄµã.
-     Ê¹ÓÃÒıÓÃ,±ÜÃâËùÓĞÈ¨µÄ×ªÒÆ.
-     ÏÈrelease,ºó¸³Öµ. ÔİÊ±×ªÒÆËùÓĞÈ¨.
-
+10.unique_ptrå‡½æ•°ä¼ å‚éœ€è¦æ³¨æ„çš„ç‚¹.
+     ä½¿ç”¨å¼•ç”¨,é¿å…æ‰€æœ‰æƒçš„è½¬ç§».
+     å…ˆrelease,åèµ‹å€¼. æš‚æ—¶è½¬ç§»æ‰€æœ‰æƒ.
