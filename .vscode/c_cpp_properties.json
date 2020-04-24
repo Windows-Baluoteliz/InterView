@@ -1,11 +1,12 @@
 {
   "configurations": [
     {
-      "name": "InterView.sln:c:/CodeSegment/VS2013/Windows-Baluoteliz/InterView/InterView/InterView.vcxproj",
+      "name": "InterView.sln:c:/workspace/Windows-Baluoteliz/InterView/InterView/InterView.vcxproj",
       "includePath": [],
       "defines": [
         "WIN32",
         "_DEBUG",
+        "_CRT_SECURE_NO_WARNINGS",
         "_CONSOLE",
         "_LIB",
         ""

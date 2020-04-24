@@ -1,20 +1,75 @@
-  {"tasks": [
+{
+  "tasks": [
     {
-      "label": "build_debug",
+      "label": "Build InterView.sln:c:/workspace/Windows-Baluoteliz/InterView/InterView/InterView.vcxproj",
       "type": "shell",
-      "command": "./compile-windows.bat 32 InterView.sln debug",
+      "command": "& 'c:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe' InterView.sln -t:InterView -property:Configuration=Debug -property:Platform=Win32",
       "group": {
         "kind": "build",
-        "isDefault": true
+        "isDefault": false
       }
     },
     {
-      "label": "build_release",
+      "label": "Clean InterView.sln:c:/workspace/Windows-Baluoteliz/InterView/InterView/InterView.vcxproj",
       "type": "shell",
-      "command": "./compile-windows.bat 32 InterView.sln release",
+      "command": "& 'c:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe' InterView.sln -t:Clean -property:Configuration=Debug -property:Platform=Win32",
       "group": {
         "kind": "build",
-        "isDefault": true
+        "isDefault": false
+      }
+    },
+    {
+      "label": "Build InterView.sln:c:/workspace/Windows-Baluoteliz/InterView/InstanceLib/InstanceLib.vcxproj",
+      "type": "shell",
+      "command": "& 'c:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe' InterView.sln -t:InstanceLib -property:Configuration=Debug -property:Platform=Win32",
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      }
+    },
+    {
+      "label": "Clean InterView.sln:c:/workspace/Windows-Baluoteliz/InterView/InstanceLib/InstanceLib.vcxproj",
+      "type": "shell",
+      "command": "& 'c:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe' InterView.sln -t:Clean -property:Configuration=Debug -property:Platform=Win32",
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      }
+    },
+    {
+      "label": "Build InterView.sln:c:/workspace/Windows-Baluoteliz/InterView/InstanceDll1/InstanceDll1.vcxproj",
+      "type": "shell",
+      "command": "& 'c:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe' InterView.sln -t:InstanceDll1 -property:Configuration=Debug -property:Platform=Win32",
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      }
+    },
+    {
+      "label": "Clean InterView.sln:c:/workspace/Windows-Baluoteliz/InterView/InstanceDll1/InstanceDll1.vcxproj",
+      "type": "shell",
+      "command": "& 'c:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe' InterView.sln -t:Clean -property:Configuration=Debug -property:Platform=Win32",
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      }
+    },
+    {
+      "label": "Build InterView.sln:c:/workspace/Windows-Baluoteliz/InterView/InstanceDll2/InstanceDll2.vcxproj",
+      "type": "shell",
+      "command": "& 'c:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe' InterView.sln -t:InstanceDll2 -property:Configuration=Debug -property:Platform=Win32",
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      }
+    },
+    {
+      "label": "Clean InterView.sln:c:/workspace/Windows-Baluoteliz/InterView/InstanceDll2/InstanceDll2.vcxproj",
+      "type": "shell",
+      "command": "& 'c:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe' InterView.sln -t:Clean -property:Configuration=Debug -property:Platform=Win32",
+      "group": {
+        "kind": "build",
+        "isDefault": false
       }
     }
   ],

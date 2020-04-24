@@ -6,11 +6,11 @@
       "type": "cppvsdbg",
       "request": "launch",
       "stopAtEntry": false,
-      "program": "InterView.exe",
+      "program": "c:\\workspace\\Windows-Baluoteliz\\InterView\\bind\\InterView",
       "args": [],
-      "cwd": "${workspaceRoot}\\bind\\",
-      "preLaunchTask": "build_debug",
-      "externalConsole": true
+      "cwd": "c:\\workspace\\Windows-Baluoteliz\\InterView\\bind",
+      "preLaunchTask": "Build InterView.sln:c:/workspace/Windows-Baluoteliz/InterView/InterView/InterView.vcxproj",
+      "externalConsole": true,
     }
   ]
 }
