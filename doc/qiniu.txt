@@ -1,19 +1,22 @@
 1.static的用法.
    全局变量/局部变量; c++ static函数.
 
-2.const的用法.
-   const char* ptr 指针常量(指向内存不可修改) 类似const&
-   char* const ptr 常量指针(指针变量不可修改) 
+2.const/volatile/mutable的用法.
+   const char* ptr 常量指针(指向内存不可修改 low level const) 类似const& 
+   char* const ptr 指针常量(指针变量不可修改 top level const)
+   constexpr char *ptr 指的是top level const; constexpr char const *ptr 指向常量的常量指针.
    c++类中,修饰return type(主要用于重载);参数：保护内存；函数 const重载.
    类成员const常量.赋值在构造函数初始化列表中.
+   mutalbe 主要是破除const 修饰 比如const 函数重载中修改成员变量的值.
+   volatile 主要是破除编译器针对const的优化.使得每次访问都需要重内存中重新获取新的值.
 
 3.自增赋值/自增引用.
    两则没有太大区别,因为引用就是别名.
 
 4.tcp如何鉴别丢包 以及如何实现丢包重传.
-   server端会发送ack通知client端.
-   client端再timeout后没有收到ack就会retransmit
-   重传机制: fr(fast retransmit): 多个chunk不连续包向client发送3ci相同的syn-ack,那么server就retransmit 
+   server端会发送ack通知client端. client 根据ack推算rtt进而得出一次返回最大时间rto
+   client端再rto timeout后没有收到ack就会retransmit
+   重传机制: fr(fast retransmit): 多个chunk不连续包向client发送3次相同的syn-ack,那么server就retransmit 
    RTT(Round trip time):预期一个时间RT (Retransmission timeout)，out range of this interval elapsed, should retransmit syn again.
    RT 是有一个权重算法的.
 
@@ -62,4 +65,4 @@
 
 10.unique_ptr函数传参需要注意的点.
      使用引用,避免所有权的转移.
-     先release,后赋值. 暂时转移所有权.
+     先release,后赋值. 让出真正dynamic data的所有权.

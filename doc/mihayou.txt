@@ -3,12 +3,11 @@
   同样写文件的时候也要注意便宜。最终closefile即可.
 
 2.map 和 unorder_map
-  map:balance map / rb tree. 有序.
+  map:balance map的一中 / rb tree. 有序.rb tree 相比balance tree来说针对insert/delete 自平衡恢复效率更加高效.
   unordered_map: hashtable 散列.
 
 3.迭代器的类型.
-  input;output;forward;bidirectional;random access;
-  vector: random, map:bidirectional,list: bidirectional.
+  input(istream read);output(ostream write);forward(list,forward_list);bidirectional(list,map);random access(vector,deque,string);
 
 4.网络拥塞的处理
    原因: 网络抖动造成 发送量大于bottlneck.

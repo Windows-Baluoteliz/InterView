@@ -1,9 +1,9 @@
 bytedance.
 1.pthread 中wait的原理
     对producer
-    lock,unlock,send signal, trylock
+    lock,modify variable ,unlock,send signal, trylock
     对于consumer
-    lock,wait,unlock
+    lock,wait(variable),unlock
 
 2.share memory 在2个process的访问地址是否相同.
     windows下share memory 在不同process的使用主要是通过filemap 内存映射实现的.

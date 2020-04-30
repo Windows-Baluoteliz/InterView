@@ -69,9 +69,10 @@
 	
 8.windows消息机制.post/send的区别.
   getmessage(),translatemessage()#主要讲keydown/keyup转换为wm_char消息 dispatchmessage 到对应的消息层交由对应的winprocedure 处理.
+  peekmessage():获取消息状态,通过参数判断是否需要移除消息,他是aysn的.
+  
   postmessage：异步的发送到消息队列;sendmessage block的waiting force 该消息执行return.
   getmessage(): 获取消息，并从消息队列中移除, 但是如果没有消息,则thread一直挂起，等待下一次cpu轮训. 直到有消息return.
-  peekmessage():获取消息状态,通过参数判断是否需要移除消息,他是aysn的.
   
 9.多进程sendmsg。执行机制是怎样的。
    一般来说进程是不能访问其他进程你地址.
