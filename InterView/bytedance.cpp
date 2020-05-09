@@ -1,12 +1,14 @@
 #include <iostream>
 #include <algorithm>
-using namespace std;
 #include <string.h>
 #include <vector>
 #include <functional>
 #include <stack>
 #include <unordered_map>
 #include <map>
+#include <list>
+#include <unordered_set>
+using namespace std;
 
 /*
 * 指定l:数据其实位置,p:从l开始的数据长度,
@@ -533,20 +535,21 @@ public:
     }
     
     void put(int key, int value) {
-        uo_map_value[key] = value;
-        map_count[key] +=1;
         if(uo_map_value.size() == capacity) {
             std::vector<std::pair<int,int>> vec_pair_count;
             for_each(map_count.begin(),map_count.end(),[&](const std::pair<int,int>& element) {
                 vec_pair_count.push_back(element);
             });
             sort(vec_pair_count.begin(),vec_pair_count.end(),[&](std::pair<int,int>& lhs,std::pair<int,int>& rhs){
-                return lhs < rhs;
+                return lhs.second < rhs.second;
             });
             int k = vec_pair_count[0].first;
             uo_map_value.erase(uo_map_value.find(k));
             map_count.erase(map_count.find(k));
         }
+        
+        uo_map_value[key] = value;
+        map_count[key] +=1;
     }
 
     private:
@@ -555,24 +558,107 @@ public:
         std::map<int ,int> map_count;
 };
 
+//全 O(1) 的数据结构
+class AllOne {
+public:
+    /** Initialize your data structure here. */
 
+    AllOne() {
+    }
+    
+    /** Inserts a new key <Key> with value 1. Or increments an existing key by 1. */
+    void inc(string key) {
+        if(uo_map_container.count(key)) {
+            auto ite_cur = uo_map_container[key];
+            auto ite_next = next(ite_cur,1);
+            ite_next = listNode.insert(ite_next,Node(ite_cur->value + 1));
+            ite_next->container.insert(key);
+            ite_cur->container.erase(key);
+            if(ite_cur->container.empty())
+                listNode.erase(ite_cur);
+            uo_map_container[key] = ite_next;  
+        } else {
+            auto ite_next = listNode.begin();
+            if(listNode.end() != ite_next &&
+            ite_next->value == 1) {
+                ite_next->container.insert(key);
+            } else {
+                ite_next = listNode.insert(ite_next,Node(1));
+                ite_next->container.insert(key);
+            }
+            uo_map_container[key] = ite_next;
+        }
+    }
+    
+    /** Decrements an existing key by 1. If Key's value is 1, remove it from the data structure. */
+    void dec(string key) {
+        if(uo_map_container.count(key)) {
+            auto ite_cur = uo_map_container[key];
+            if(ite_cur->value == 1) {
+                ite_cur->container.erase(key);
+                if(ite_cur->container.empty())
+                    listNode.erase(ite_cur);
+                uo_map_container.erase(key);
+            } else {
+                auto ite_pre = prev(ite_cur,1);  
+                if(ite_pre == listNode.end() ||
+                ite_cur->value > ite_pre->value + 1) {
+                    ite_cur->container.erase(key);
+                    ite_pre = listNode.insert(ite_cur,Node(ite_cur->value - 1));
+                    uo_map_container[key] = ite_pre;
+                    if(ite_cur->container.empty())
+                        listNode.erase(ite_cur);
+                } else {
+                    ite_pre->container.insert(key);
+                    ite_cur->container.erase(key);
+                    if(ite_cur->container.empty())
+                        listNode.erase(ite_cur);
+                    uo_map_container[key] = ite_pre;
+                }
+            } 
+        }
+    }
+    
+    /** Returns one of the keys with maximal value. */
+    string getMaxKey() {
+        if(listNode.empty())
+            return "";
+        else
+            return *(listNode.rbegin()->container.begin());
+    }
+    
+    /** Returns one of the keys with Minimal value. */
+    string getMinKey() {
+        if(listNode.empty())
+            return "";
+        else 
+            return *(listNode.begin()->container.begin());
+    }
+
+    private:
+        struct Node {
+            int value;
+            std::unordered_set<string> container;
+            Node(int nNum):value(nNum){;}
+        };
+    std::unordered_map<string,std::list<Node>::iterator> uo_map_container;
+    std::list<Node> listNode;
+};
 
 int main() {
 
-    std::vector<int> vecnum{4,5,6,7,8,1,2};
-    std::cout<<"getPermutation result: "<<getPermutation(4,9).c_str()<<std::endl;
+    //Your AllOne object will be instantiated and called as such:
+    AllOne* obj = new AllOne();
+    obj->inc("1");
+    obj->inc("2");
+    obj->inc("3");
+    obj->inc("1");
+    obj->dec("2");
 
-    LRUCache *cache = new LRUCache( 2 /* 缓存容量 */ );
-
-    cache->put(1, 1);
-    cache->put(2, 2);
-    cache->get(1);       
-    cache->put(3, 3);    
-    cache->get(2);       
-    cache->put(4, 4);    
-    cache->get(1);       
-    cache->get(3);       
-    cache->get(4);       
+    string param_3 = obj->getMaxKey();
+    cout<<"maxKey: "<<param_3.c_str()<<endl;
+    string param_4 = obj->getMinKey();
+    cout<<"minKey: "<<param_4.c_str()<<endl;    
 
     return 0;
 }

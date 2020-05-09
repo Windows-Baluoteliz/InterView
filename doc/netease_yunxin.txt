@@ -1,0 +1,62 @@
+1.wave/core/directsound的区别和使用流程.
+wave：系统主要是用于数字音频播放. 在window NT 操作系统引入的.
+兼容性并不好，不支持多重音讯流,同时也没有引入硬件加速,所以cpu会相对高.
+direct：全面支持32位向下兼容的window系统.自由度和性能损耗以及兼容性更好
+coreaudio:vista引入的，他是上述higher-level-api(wave,directsound)的基础
+安全，稳定，低延时,api使用繁琐.
+
+2.share_ptr,unique_ptr,weak_ptr 的实现原理和应用场景.
+share_ptr 是通过引用计数共享动态内存.当引用计数位0自动释放动态内存.构造/赋值/reset等都会造成计数改变
+unique_ptr 独占动态内存，不能直接发生所有权转移.知道out of scope 才释放动态内存.
+weak_ptr 是share_ptr的若引用.可以直接使用share_ptr初始化.但并不修改引用计数.可以通过lock方法从weak_ptr获取share_ptr,
+解决share_ptr circle reference count无法clear zero 或者 并不想要资源被多个地方所共享.
+
+2.1 多肽的实现原理,编译时多肽,运行时多肽
+对于面向对象而言:多肽值得是运行期多肽
+如果base class 不存在virtual function,那么函数的执行地址取决于指针类型，这是在编译阶段就决定了的,称为static/early binding(早起绑定);
+如果base class 中存在virtual 函数，derived class override该函数,那么函数的执行地址取决于指针指向的类对象，因为虚函数都有对应的虚表,
+而指定类的实例化会产生虚表指针vptr初始化指向具体的vtable(构造的时候),运行时查找虚表指针指向那个虚表(late binding)override;也称类多肽
+template function通过不同的参数具现化不同的函数模板生成不同的函数 + 函数重载 构成了编译器多肽
+
+3.template 偏特化应用场景.
+class template 才有偏特化;function template 没有偏特化.但是函数重载可以完成函数偏特化的要求
+class template 和 function template 都有全特化
+
+4.lambda的实现原理
+lambda expression is a snippet of code which not reuse or naming. it's is inline function.
+declare form: [capture list](parameters list)->return type{definition of method}
+capture list:local external variable; [&]:all by reference,[=]:all by value,[a,&b] a by value,b by reference
+
+5.设计模式的运用和模板化.
+
+6.windows 线程同步的方案和基层原理
+critical_section,mutex,event,Semaphore;
+
+7.进程间通信的方法
+dll,socket,namepipe,unnamepipr,share memory(file map) slot,copy_data.
+
+8.dll在2个进程间被访问的内存形式
+Variables that are declared as global in a DLL source code file are treated as global variables by the compiler and linker, 
+but each process that loads a given DLL gets its own copy of that DLL's global variables.
+
+9.线程内部存储
+threadLocal对应的set/get 方法,只能对应指定线程使用.
+针对threadLocal.threadLocalMap 轮训entry table 到指定线程然后调用set函数
+根据threadLocalMap.entry 直接get value.
+
+10.sendMessage cross multiple-thread
+1.工作线程挂起
+2.切换到窗口线程，执行对应的消息处理
+3.切换回工作线程
+
+12.mfc自绘窗口方法.
+
+13.解决桌面闪屏方法.
+onEraseBackGround return false:表示每次刷新不用清除背景.
+所有的自绘动作都需要在memDC完成,然后才bitblt 到normal dc.
+
+什么是GOP？
+GOP ( Group of Pictures ) 是一组连续的画面，由一张 I 帧和数张 B / P 帧组成，是视频图像编码器和解码器存取的基本单位。
+也就是说GOP组是指一个关键帧I帧所在的组的长度，每个 GOP 组只有 1 个 I 帧。
+GOP 组的长度格式也决定了码流的大小。
+GOP越大，中间的P帧和B帧的数量就越多，所以解码出来的视频质量就越高，但是会影响编码效率。
