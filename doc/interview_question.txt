@@ -34,4 +34,12 @@ WebRTC 框架.
 Http keepAlive作用. 避免http每次都断开. 避免了大量的create/release. 节约资源.
 数组中有一堆有符号的数据,从中查找出3个数据试乘机最大. ;直接找出最大的3个数和最小的2个数.
 
+record tips:
+thread-safe & re-entrance
+it only manipulates shared data structures in a manner that guarantees safe execution by multiple threads at the same time.
+it can be interrupted at any point during its execution and then safely called again ("re-entered") before its previous invocations complete execution.
+so re-entrance is thread-saft ,but thread-saft is not necessary re-entrance
+thread-safe approach:
+re-entrance function;mutual execusion(core);atomic lock; thread local storage;
+
 
